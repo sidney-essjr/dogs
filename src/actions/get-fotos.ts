@@ -1,4 +1,6 @@
-interface Foto {
+"use server";
+
+export interface Foto {
   id: number;
   author: string;
   title: string;
@@ -10,7 +12,7 @@ interface Foto {
   total_comments: string;
 }
 
-export async function getFoto() {
+export async function getFotos() {
   const response = await fetch(
     "https://dogsapi.origamid.dev/json/api/photo/?_page=1&_total=6&_user=0",
     { next: { revalidate: 300 } }
