@@ -1,0 +1,32 @@
+.acesso {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+    gap: 2rem;
+  }
+  
+  .acesso::before {
+    display: block;
+    content: '';
+    background: url('/assets/login.jpg') no-repeat center center;
+    background-size: cover;
+  }
+  
+  .forms {
+    max-width: 30rem;
+    padding: 1rem;
+    margin-top: 20vh;
+  }
+  
+  @media (max-width: 40rem) {
+    .acesso {
+      grid-template-columns: 1fr;
+    }
+    .acesso::before {
+      display: none;
+    }
+    .forms {
+      max-width: 100%;
+    }
+  }
+  
