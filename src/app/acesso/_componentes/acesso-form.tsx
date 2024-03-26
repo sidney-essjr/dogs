@@ -1,8 +1,10 @@
 "use client";
 
-import { getFotos } from "@/actions/get-fotos";
 import PostAcesso from "@/actions/post-acesso";
 import Button from "@/app/_componentes/forms/button";
+import Input from "@/app/_componentes/forms/input";
+import ErrorMessage from "@/app/_componentes/helper/error-message";
+import { useEffect } from "react";
 import { useFormState, useFormStatus } from "react-dom";
 
 const FormButton = () => {
@@ -25,14 +27,19 @@ export default function AcessoForm() {
     error: "",
   });
 
+  useEffect(() => {
+    if (state.ok) window.location.href = "/conta";
+  }, [state.ok]);
+
   return (
     <>
       <form action={action}>
-        <input type="text" name="username" placeholder="usuário" />
-        <input type="password" name="password" placeholder="senha" />
+        <Input name="username" label="Usuário" />
+        <Input name="password" label="Senha" type="password" />
+
+        <ErrorMessage error={state.error} />
 
         <FormButton />
-        <p>{state.error}</p>
       </form>
     </>
   );
