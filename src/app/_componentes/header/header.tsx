@@ -3,7 +3,7 @@ import styles from "./header.module.css";
 import Image from "next/image";
 
 export default function Header() {
-  const usuario = { nome: "Sidney", autenticado: true };
+  const usuario = { nome: "Sidney", autenticado: false };
 
   return (
     <header className={styles.header}>
@@ -17,7 +17,7 @@ export default function Header() {
             priority
           />
         </Link>
-        {usuario ? (
+        {usuario.autenticado ? (
           <Link href={"/conta"} className={styles.login}>
             {usuario.nome}
           </Link>

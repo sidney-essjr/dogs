@@ -12,7 +12,7 @@ const FormButton = () => {
   return (
     <>
       {pending ? (
-        <Button disabled> Cadastrando...</Button>
+        <Button disabled>Cadastrando...</Button>
       ) : (
         <Button>Cadastrar</Button>
       )}
