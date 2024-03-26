@@ -4,8 +4,10 @@ import PostAcesso from "@/actions/post-acesso";
 import Button from "@/app/_componentes/forms/button";
 import Input from "@/app/_componentes/forms/input";
 import ErrorMessage from "@/app/_componentes/helper/error-message";
+import Link from "next/link";
 import { useEffect } from "react";
 import { useFormState, useFormStatus } from "react-dom";
+import styles from "./acesso-form.module.css";
 
 const FormButton = () => {
   const { pending } = useFormStatus();
@@ -33,7 +35,7 @@ export default function AcessoForm() {
 
   return (
     <>
-      <form action={action}>
+      <form className={styles.form} action={action}>
         <Input name="username" label="Usuário" />
         <Input name="password" label="Senha" type="password" />
 
@@ -41,6 +43,16 @@ export default function AcessoForm() {
 
         <FormButton />
       </form>
+      <Link className={styles.perdeu} href="/acesso/recuperar">
+        Perdeu a senha?
+      </Link>
+      <div className={styles.cadastro}>
+        <h2 className={styles.subtitle}>Cadastre-se</h2>
+        <p>Ainda não possui conta, cadastre-se no site</p>
+        <Link className="button" href="/acesso/criar">
+          Cadastro
+        </Link>
+      </div>
     </>
   );
 }
