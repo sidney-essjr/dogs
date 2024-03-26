@@ -12,14 +12,14 @@ export default async function PostAcesso(state: {}, formData: FormData) {
 
   try {
     if (!username || !password)
-      throw new Error("Preencha os dados necessario para requisição");
+      throw new Error("Preencha os campos com seus dados de acesso");
 
     const response = await fetch(url, {
       method: "POST",
       body: formData,
     });
 
-    if (!response.ok) throw new Error("Usuário ou senha invalidos");
+    if (!response.ok) throw new Error("Usuário ou senha inválidos");
 
     const data = await response.json();
 
