@@ -14,7 +14,7 @@ const FormButton = () => {
   return (
     <>
       {pending ? (
-        <Button disabled={pending}>Carregando...</Button>
+        <Button disabled>Carregando...</Button>
       ) : (
         <Button>Entrar</Button>
       )}
@@ -49,7 +49,7 @@ export default function AcessoForm() {
       <div className={styles.cadastro}>
         <h2 className={styles.subtitle}>Cadastre-se</h2>
         <p>Ainda não possui conta, cadastre-se no site</p>
-        <Link className="button" href="/acesso/criar">
+        <Link className="button" href="/acesso/cadastrar">
           Cadastro
         </Link>
       </div>
