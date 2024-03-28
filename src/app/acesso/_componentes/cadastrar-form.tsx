@@ -1,6 +1,6 @@
 "use client";
 
-import postCadastrar from "@/actions/post-cadastrar";
+import criarCadastro from "@/actions/criar-cadastro";
 import Button from "@/app/_componentes/forms/button";
 import Input from "@/app/_componentes/forms/input";
 import ErrorMessage from "@/app/_componentes/helper/error-message";
@@ -21,7 +21,7 @@ const FormButton = () => {
 };
 
 export default function CadastrarForm() {
-  const [state, action] = useFormState(postCadastrar, {
+  const [state, action] = useFormState(criarCadastro, {
     ok: false,
     data: null,
     error: "",

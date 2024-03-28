@@ -1,6 +1,6 @@
 "use client";
 
-import PostAcesso from "@/actions/post-acesso";
+import validarAcesso from "@/actions/validar-acesso";
 import Button from "@/app/_componentes/forms/button";
 import Input from "@/app/_componentes/forms/input";
 import ErrorMessage from "@/app/_componentes/helper/error-message";
@@ -23,7 +23,7 @@ const FormButton = () => {
 };
 
 export default function AcessoForm() {
-  const [state, action] = useFormState(PostAcesso, {
+  const [state, action] = useFormState(validarAcesso, {
     ok: false,
     data: null,
     error: "",
