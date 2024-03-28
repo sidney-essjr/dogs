@@ -1,9 +1,10 @@
 import Link from "next/link";
 import styles from "./header.module.css";
 import Image from "next/image";
+import obterUsuario from "@/actions/obter-usuario";
 
-export default function Header() {
-  const usuario = { nome: "Sidney", autenticado: false };
+export default async function Header() {
+  const { data } = await obterUsuario();
 
   return (
     <header className={styles.header}>
@@ -17,9 +18,9 @@ export default function Header() {
             priority
           />
         </Link>
-        {usuario.autenticado ? (
+        {data ? (
           <Link href={"/conta"} className={styles.login}>
-            {usuario.nome}
+            {data.nome}
           </Link>
         ) : (
           <Link href={"/acesso"} className={styles.login}>
