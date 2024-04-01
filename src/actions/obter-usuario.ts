@@ -22,6 +22,7 @@ export default async function obterUsuario() {
       headers: {
         Authorization: "Bearer " + token,
       },
+      next: { revalidate: 60 },
     });
 
     if (!response.ok) throw new Error("Erro ao tentar acessar usuário");
