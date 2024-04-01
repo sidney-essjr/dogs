@@ -1,3 +1,12 @@
+"use client";
+
+import { useUserContext } from "@/context/user-context";
+
 export default function ContaPage() {
-  return <main>ContaPage</main>;
+  const { user } = useUserContext();
+  return (
+    <section>
+      <h1>{user?.nome}</h1>
+    </section>
+  );
 }

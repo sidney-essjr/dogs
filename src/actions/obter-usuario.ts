@@ -4,7 +4,7 @@ import { USER_GET } from "@/functions/api";
 import apiError from "@/functions/api-error";
 import { cookies } from "next/headers";
 
-type User = {
+export type User = {
   id: number;
   email: string;
   username: string;
