@@ -1,14 +1,16 @@
 "use client";
 
+import logout from "@/actions/logout";
+import { useUserContext } from "@/context/user-context";
 import useMedia from "@/hooks/use-media";
+import AdicionarFoto from "@/icons/adicionar-icon";
+import Estatisticas from "@/icons/estatisticas-icon";
+import FeedIcon from "@/icons/feed-icon";
+import Sair from "@/icons/sair-icon";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
 import styles from "./header.module.css";
-import Link from "next/link";
-import AdicionarFoto from "@/icons/adicionar-icon";
-import Estatisticas from "@/icons/estatisticas-icon";
-import Sair from "@/icons/sair-icon";
-import FeedIcon from "@/icons/feed-icon";
 
 function obterTitulo(pathname: string) {
   switch (pathname) {
@@ -30,8 +32,11 @@ export default function ContaHeaderNav() {
     setMobileMenu(false);
   }, [pathname]);
 
-  function handleLogout() {
-    // userLogout();
+  const { setUser } = useUserContext();
+
+  async function handleLogout() {
+    await logout();
+    setUser(null);
   }
 
   return (
@@ -52,15 +57,21 @@ export default function ContaHeaderNav() {
           mobileMenu && styles.navMobileActive
         }`}
       >
-        <Link href="/conta" className={pathname === '/conta' ? 'active' : ''}>
+        <Link href="/conta" className={pathname === "/conta" ? "active" : ""}>
           <FeedIcon />
           {mobile && "Minhas Fotos"}
         </Link>
-        <Link href="/conta/estatisticas" className={pathname === '/conta/estatisticas' ? 'active' : ''}>
+        <Link
+          href="/conta/estatisticas"
+          className={pathname === "/conta/estatisticas" ? "active" : ""}
+        >
           <Estatisticas />
           {mobile && "Estatísticas"}
         </Link>
-        <Link href="/conta/postar" className={pathname === '/conta/postar' ? 'active' : ''}>
+        <Link
+          href="/conta/postar"
+          className={pathname === "/conta/postar" ? "active" : ""}
+        >
           <AdicionarFoto />
           {mobile && "Adicionar Foto"}
         </Link>
