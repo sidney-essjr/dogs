@@ -15,7 +15,7 @@ export interface Foto {
 export async function obterFotos() {
   const response = await fetch(
     "https://dogsapi.origamid.dev/json/api/photo/?_page=1&_total=6&_user=0",
-    { next: { revalidate: 300 } }
+    { next: { revalidate: 20, tags:['fotos'] } }
   );
 
   if (!response.ok) throw new Error("Não foi possivel acessar os dados na api");

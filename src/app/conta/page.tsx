@@ -1,12 +1,14 @@
-"use client";
+import { Metadata } from "next";
+import PostarFoto from "./_componentes/postar-foto";
 
-import { useUserContext } from "@/context/user-context";
+export const metadata: Metadata = {
+  title: "Minha Conta",
+};
 
 export default function ContaPage() {
-  const { user } = useUserContext();
   return (
     <section>
-      <h1>{user?.nome}</h1>
+      Minha Conta
     </section>
   );
 }

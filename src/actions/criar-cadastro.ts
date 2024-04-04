@@ -11,8 +11,6 @@ export default async function criarCadastro(state: {}, formData: FormData) {
 
   const { url } = USER_POST();
 
-  console.log(url);
-
   try {
     if (!username || !email || !password)
       throw new Error("Preencha os campos com seus dados de acesso");
