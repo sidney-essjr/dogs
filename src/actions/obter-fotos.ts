@@ -1,5 +1,9 @@
 "use server";
 
+import { PHOTOS_GET } from "@/functions/api";
+import apiError from "@/functions/api-error";
+import { error } from "console";
+
 export interface Foto {
   id: number;
   author: string;
@@ -12,15 +16,32 @@ export interface Foto {
   total_comments: string;
 }
 
-export async function obterFotos() {
-  const response = await fetch(
-    "https://dogsapi.origamid.dev/json/api/photo/?_page=1&_total=6&_user=0",
-    { next: { revalidate: 20, tags:['fotos'] } }
-  );
+type ObterFotoParams = {
+  page?: number;
+  total?: number;
+  user?: 0 | string;
+};
 
-  if (!response.ok) throw new Error("Não foi possivel acessar os dados na api");
+export async function obterFotos({
+  page = 1,
+  total = 6,
+  user = 0,
+}: ObterFotoParams = {}) {
+  try {
+    const { url } = PHOTOS_GET({ page, total, user });
 
-  const data = (await response.json()) as Foto[];
+    const response = await fetch(url, {
+      next: { revalidate: 20, tags: ["fotos"] },
+    });
 
-  return data;
+    if (!response.ok)
+      throw new Error("Não foi possivel acessar os dados na api");
+
+    const fotos = (await response.json()) as Foto[];
+
+    return { data: fotos, ok: true, error: "" };
+
+  } catch (error: unknown) {
+    return apiError(error);
+  }
 }
