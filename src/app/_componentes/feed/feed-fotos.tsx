@@ -4,7 +4,7 @@ import styles from "./feed.module.css";
 import Image from "next/image";
 import Link from "next/link";
 
-export default async function FeedFotos({ fotos }: { fotos: Foto[] }) {
+export default function FeedFotos({ fotos }: { fotos: Foto[] }) {
   if (!fotos) return <NotFound />;
 
   return (

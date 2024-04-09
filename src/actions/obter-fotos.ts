@@ -22,17 +22,17 @@ type ObterFotoParams = {
   user?: 0 | string;
 };
 
-export async function obterFotos({
-  page = 1,
-  total = 6,
-  user = 0,
-}: ObterFotoParams = {}) {
+export async function obterFotos(
+  { page = 1, total = 6, user = 0 }: ObterFotoParams = {},
+  optionsFront?: RequestInit
+) {
   try {
+    const options = optionsFront || {
+      next: { revalidate: 20, tags: ["fotos"] },
+    };
     const { url } = PHOTOS_GET({ page, total, user });
 
-    const response = await fetch(url, {
-      next: { revalidate: 20, tags: ["fotos"] },
-    });
+    const response = await fetch(url, options);
 
     if (!response.ok)
       throw new Error("Não foi possivel acessar os dados na api");
@@ -40,7 +40,6 @@ export async function obterFotos({
     const fotos = (await response.json()) as Foto[];
 
     return { data: fotos, ok: true, error: "" };
-
   } catch (error: unknown) {
     return apiError(error);
   }

@@ -3,6 +3,7 @@ import obterUsuario from "@/actions/obter-usuario";
 import { Metadata } from "next";
 import Feed from "../_componentes/feed/feed";
 import Link from "next/link";
+import { use } from "react";
 
 export const metadata: Metadata = {
   title: "Minha Conta",
@@ -15,7 +16,7 @@ export default async function ContaPage() {
   return (
     <section>
       {data?.length ? (
-        <Feed fotos={data} />
+        <Feed fotos={data} user={user?.username} />
       ) : (
         <div>
           <p
