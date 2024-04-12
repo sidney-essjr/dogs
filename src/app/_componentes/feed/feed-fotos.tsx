@@ -1,8 +1,8 @@
 import { Foto } from "@/actions/obter-fotos";
-import NotFound from "@/functions/not-found";
-import styles from "./feed.module.css";
 import Image from "next/image";
 import Link from "next/link";
+import styles from "./feed.module.css";
+import NotFound from "@/app/not-found";
 
 export default function FeedFotos({ fotos }: { fotos: Foto[] }) {
   if (!fotos) return <NotFound />;
