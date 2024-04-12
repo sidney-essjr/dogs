@@ -2,7 +2,7 @@
 
 import { PHOTO_POST } from "@/functions/api";
 import apiError from "@/functions/api-error";
-import { revalidatePath, revalidateTag } from "next/cache";
+import { revalidateTag } from "next/cache";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
@@ -38,5 +38,5 @@ export default async function postarFoto(state: {}, formData: FormData) {
   }
 
   revalidateTag("fotos");
-  redirect('/conta')
+  redirect("/conta");
 }
