@@ -10,13 +10,6 @@
     border-radius: 0.2rem;
     display: grid;
     align-items: center;
-    grid-template-rows: 0.1fr 1fr;
-  }
-
-  .label {
-    text-align: center;
-    height: 3rem;
-    align-content: end;
   }
   
   .total {

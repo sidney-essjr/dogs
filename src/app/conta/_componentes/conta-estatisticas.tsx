@@ -29,9 +29,6 @@ export default function ContaEstatisticas({ data }: { data: Estatisticas[] }) {
         <p>Acessos: {total}</p>
       </div>
       <div className={styles.graphItem}>
-        <div className={styles.label}>
-          <h1 style={{ margin: "auto" }}>Comentarios</h1>
-        </div>
         <VictoryPie
           data={graph}
           innerRadius={50}
@@ -51,9 +48,6 @@ export default function ContaEstatisticas({ data }: { data: Estatisticas[] }) {
         ></VictoryPie>
       </div>
       <div className={styles.graphItem}>
-        <div className={styles.label}>
-          <h1 style={{ margin: "auto" }}>Visualizações</h1>
-        </div>
         <VictoryChart>
           <VictoryBar alignment="start" data={graph}></VictoryBar>
         </VictoryChart>
