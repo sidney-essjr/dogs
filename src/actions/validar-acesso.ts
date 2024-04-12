@@ -26,7 +26,7 @@ export default async function validarAcesso(state: {}, formData: FormData) {
     cookies().set("token", data.token, {
       httpOnly: true,
       secure: true,
-      maxAge: 60 * 60 * 24,
+      maxAge: 60 * 5,
     });
 
     return { ok: true, data: null, error: "" };
