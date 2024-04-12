@@ -4,7 +4,7 @@ import recuperarAcesso from "@/actions/recuperar-acesso";
 import postRecuperar from "@/actions/recuperar-acesso";
 import Button from "@/app/_componentes/forms/button";
 import Input from "@/app/_componentes/forms/input";
-import ErrorMessage from "@/app/_componentes/helper/error-message";
+import ErrorMessage from "@/helper/error-message";
 import { useEffect, useState } from "react";
 import { useFormState, useFormStatus } from "react-dom";
 

@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useUserContext } from "@/context/user-context";
 import FotoDeletar from "./foto-deletar";
 import Image from "next/image";
+import FotoComentario from "./foto-comentario";
 
 export default function FotoConteudo({
   data,
@@ -39,7 +40,7 @@ export default function FotoConteudo({
           <li>{photo.idade} anos</li>
         </ul>
       </div>
-      {/* <PhotoComments single={single} id={photo.id} comments={comments} /> */}
+      <FotoComentario single={single} id={photo.id} comments={comments} />
     </div>
   );
 }

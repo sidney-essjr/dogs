@@ -3,7 +3,7 @@
 import criarCadastro from "@/actions/criar-cadastro";
 import Button from "@/app/_componentes/forms/button";
 import Input from "@/app/_componentes/forms/input";
-import ErrorMessage from "@/app/_componentes/helper/error-message";
+import ErrorMessage from "@/helper/error-message";
 import { ChangeEvent, useEffect, useState } from "react";
 import { useFormState, useFormStatus } from "react-dom";
 import styles from "./postar-foto.module.css";
