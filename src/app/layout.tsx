@@ -32,7 +32,7 @@ export default async function RootLayout({
             <Footer />
           </div>
         </UserContextProvider>
-        <SpeedInsights />
+        <SpeedInsights  />
       </body>
     </html>
   );
