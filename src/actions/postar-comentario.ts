@@ -32,8 +32,6 @@ export default async function postarComentario(state: {}, formData: FormData) {
 
     if (!response.ok) throw new Error("Falha ao enviar comentario");
 
-    console.log(response)
-
     const data = (await response.json()) as Comentario;
 
     revalidateTag("comentario");
